@@ -46,23 +46,23 @@ Untuk mengatasi tantangan-tantangan tersebut, kami mengusulkan pengembangan sist
 
 Berikut adalah gambaran desain hardware proyek ini:
 
-![Diagram Blok Hardware](link_ke_gambar_blok_hardware.png)
+<img src="https://github.com/Collosalbyte/Proyek-Akhir-IoT-Sem-5/raw/main/Hardware%20Design/Hardware%20Schematics.png" alt="Hardware Schematics" width="700">
 
 1. **ESP32 CAM:**
-   - Digunakan sebagai kamera untuk mendeteksi keberadaan kurir.
+   Digunakan sebagai kamera untuk mendeteksi keberadaan kurir.
    
 2. **HX711:**
-   - Berfungsi sebagai penimbang berat di dalam wooden box.
+   Berfungsi sebagai penimbang berat di dalam wooden box.
    
 3. **Servo:**
-   - Menggerakkan wooden box sebagai tempat penyimpanan barang.
+   Menggerakkan wooden box sebagai tempat penyimpanan barang.
    
 4. **Speaker:**
-   - Memberikan pemberitahuan suara dari file MP3.
+   Memberikan pemberitahuan suara dari file MP3.
    
 5. **ESP32-WROOM:**
-   - Berfungsi sebagai pusat kontrol dan penghubung IoT.
-
+   Berfungsi sebagai pusat kontrol dan penghubung IoT.
+     
 ## Network Infrastructure
 
 (belum)
