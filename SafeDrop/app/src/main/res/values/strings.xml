@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">SafeDrop</string>
+    <string name="channel_name">Notification Channel Name</string>
+    <string name="channel_description">Description of Notification Channel</string>
+</resources>
