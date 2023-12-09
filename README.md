@@ -1,8 +1,4 @@
-# Penerima Paket (Final Project IOT 5)
-
-## Overview
-
-Proyek ini adalah sistem pemantauan pengiriman inovatif yang menggunakan Internet of Things (IoT) untuk meningkatkan efisiensi dan keamanan dalam proses pengiriman barang. Dengan memanfaatkan berbagai Hardware, proyek ini mengintegrasikan ESP32 CAM sebagai kamera untuk mendeteksi keberadaan kurir, servo untuk menggerakkan wooden box sebagai tempat penyimpanan barang, HX711 sebagai penimbang berat di dalam wooden box, serta speaker untuk memberikan pemberitahuan suara dari file MP3. Keseluruhan sistem dikendalikan oleh ESP32-WROOM yang berfungsi sebagai pusat kontrol dan penghubung IoT. Kamera ESP32 CAM digunakan untuk mendeteksi kurir, sementara servo menggerakkan wooden box dan HX711 memberikan informasi akurat tentang berat barang. Speaker digunakan untuk memberikan pemberitahuan suara yang dapat diprogram. Proyek ini memberikan solusi terpadu untuk pemantauan dan kontrol otomatis dalam pengiriman barang, meningkatkan efisiensi operasional dan keamanan dengan menggabungkan teknologi IoT yang canggih.
+# SafeDrop (Final Project IOT 5)
 
 ## Team Members
 - Mohamad Varrel Bramasta 
@@ -10,46 +6,77 @@ Proyek ini adalah sistem pemantauan pengiriman inovatif yang menggunakan Interne
 - Michael Winston
 - Jeffri
 
+## Overview
+Proyek ini adalah sistem pemantauan pengiriman inovatif yang menggunakan Internet of Things (IoT) untuk meningkatkan efisiensi dan keamanan dalam proses pengiriman barang. Dengan memanfaatkan berbagai Hardware, proyek ini mengintegrasikan ESP32 CAM sebagai kamera untuk mendeteksi keberadaan kurir, servo untuk menggerakkan wooden box sebagai tempat penyimpanan barang, HX711 sebagai penimbang berat di dalam wooden box, serta speaker untuk memberikan pemberitahuan suara dari file MP3. Keseluruhan sistem dikendalikan oleh ESP32-WROOM yang berfungsi sebagai pusat kontrol dan penghubung IoT. Kamera ESP32 CAM digunakan untuk mendeteksi kurir, sementara servo menggerakkan wooden box dan HX711 memberikan informasi akurat tentang berat barang. Speaker digunakan untuk memberikan pemberitahuan suara yang dapat diprogram. Proyek ini memberikan solusi terpadu untuk pemantauan dan kontrol otomatis dalam pengiriman barang, meningkatkan efisiensi operasional dan keamanan dengan menggabungkan teknologi IoT yang canggih.
+
+## Problem Statement
+
+Dalam industri pengiriman barang, terdapat sejumlah tantangan yang dapat menghambat efisiensi dan keamanan proses pengiriman. Beberapa masalah yang dihadapi termasuk:
+
+1. **Ketidakpastian Keberadaan Kurir:**
+   - Sulit untuk memantau dan memastikan keberadaan kurir di titik pengambilan atau pengantaran barang.
+
+2. **Ketidakakuratan Informasi Berat Barang:**
+   - Kurangnya informasi akurat tentang berat barang dapat mengarah pada ketidakakuratan biaya pengiriman dan potensi masalah logistik.
+
+3. **Ketidakefisienan Pemberian Pemberitahuan:**
+   - Kurangnya sistem pemberitahuan yang efisien kepada penerima atau pengirim mengenai status pengiriman dapat menyebabkan ketidakjelasan dan ketidakpastian.
+
+## Solution Overview
+
+Untuk mengatasi tantangan-tantangan tersebut, kami mengusulkan pengembangan sistem pemantauan pengiriman inovatif berbasis Internet of Things (IoT) yang terintegrasi. Berikut adalah komponen dan solusi yang diusulkan:
+
+1. **Deteksi Keberadaan Kurir:**
+   - Menggunakan ESP32 CAM sebagai kamera untuk mendeteksi keberadaan kurir di titik pengambilan dan pengantaran barang.
+
+2. **Akurasi Informasi Berat Barang:**
+   - Integrasi HX711 sebagai penimbang berat di dalam wooden box.
+   - Memastikan informasi berat barang yang akurat, yang dapat diakses secara real-time melalui jaringan IoT.
+
+3. **Pemberitahuan Suara Terprogram:**
+   - Menggunakan speaker untuk memberikan pemberitahuan suara yang dapat diprogram kepada penerima atau pengirim.
+   - Pemberitahuan suara ini dapat memberikan informasi tentang status pengiriman, instruksi khusus, atau konfirmasi keberhasilan pengiriman.
+
+4. **Pusat Kontrol dan IoT:**
+   - ESP32-WROOM berfungsi sebagai pusat kontrol yang mengoordinasikan semua komponen dalam sistem.
+   - Memungkinkan pengelolaan dan monitoring dari jarak jauh melalui platform IoT, meningkatkan efisiensi operasional dan memfasilitasi pengambilan keputusan yang cepat.
+
   
-## Functionality
+## Hardware Design
 
-### Deteksi Kurir dengan Kamera ESP32 CAM
+Berikut adalah gambaran desain hardware proyek ini:
 
-- Kamera ESP32 CAM memungkinkan sistem untuk mendeteksi dan mengidentifikasi keberadaan kurir secara akurat.
+![Diagram Blok Hardware](link_ke_gambar_blok_hardware.png)
 
-### Otomatisasi Pembukaan dan Penutupan Wooden Box
+1. **ESP32 CAM:**
+   - Digunakan sebagai kamera untuk mendeteksi keberadaan kurir.
+   
+2. **HX711:**
+   - Berfungsi sebagai penimbang berat di dalam wooden box.
+   
+3. **Servo:**
+   - Menggerakkan wooden box sebagai tempat penyimpanan barang.
+   
+4. **Speaker:**
+   - Memberikan pemberitahuan suara dari file MP3.
+   
+5. **ESP32-WROOM:**
+   - Berfungsi sebagai pusat kontrol dan penghubung IoT.
 
-- Servo dikendalikan oleh ESP32-WROOM untuk membuka dan menutup wooden box secara otomatis, meningkatkan efisiensi proses pengiriman.
+## Network Infrastructure
 
-### Pengukuran Berat Barang yang Akurat
+(belum)
 
-- Penggunaan HX711 sebagai penimbang berat di dalam wooden box memberikan informasi berat barang yang akurat, membantu dalam pemantauan dan manajemen     inventaris.
+## Software Implementation Details
 
-### Pemberitahuan Suara yang Diprogram dengan MP3
+(belum)
 
-- Speaker memungkinkan sistem memberikan pemberitahuan suara berdasarkan skenario tertentu, seperti konfirmasi penerimaan atau petunjuk operasional, menggunakan file MP3 untuk pesan yang lebih kontekstual.
+## Test Results and Performance Evaluation
 
+(belum)
 
-## Tools Used
+## Conclusion and Future Work
 
-- **ESP32 CAM:**
-<img src="https://github.com/Collosalbyte/Proyek-Akhir-IoT-Sem-5/raw/main/Tools%20Used/ESP32-CAM.jpg" alt="ESP32 CAM" width="400">
-
-- **ESP-WROOM:**
-<img src="https://github.com/Collosalbyte/Proyek-Akhir-IoT-Sem-5/raw/main/Tools%20Used/ESP32-Wroom.jpg" alt="ESP-WROOM" width="300">
-
-- **Servo:**
-<img src="https://github.com/Collosalbyte/Proyek-Akhir-IoT-Sem-5/raw/main/Tools%20Used/Servo.jpg" alt="Servo" width="200">
-
-- **Wooden Box:**
-<img src="https://github.com/Collosalbyte/Proyek-Akhir-IoT-Sem-5/raw/main/Tools%20Used/Wooden%20Box.jpg" alt="Wooden Box" width="350">
-
-- **Speaker:**
-<img src="https://github.com/Collosalbyte/Proyek-Akhir-IoT-Sem-5/raw/main/Tools%20Used/Speaker.jpg" alt="Speaker" width="250">
-
-- **HX711:**
-<img src="https://github.com/Collosalbyte/Proyek-Akhir-IoT-Sem-5/raw/main/Tools%20Used/HX711.jpg" alt="HX711" width="250">
-
-
+(belum)
 
 
