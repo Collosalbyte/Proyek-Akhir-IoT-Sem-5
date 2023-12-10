@@ -72,6 +72,8 @@ Proyek SafeDrop berbasis ESP32 yang memanfaatkan infrastruktur jaringan. Proyek 
 
 
 ## Software Implementation Details
+### `Sequence Diagram`
+<img src="https://github.com/Collosalbyte/SafeDrop/blob/main/Sequence%20Diagram/Sequence%20Diagram.png" alt="Sequence Diagram" width="700">
 
 ### 1. `webServer`
 
@@ -147,6 +149,56 @@ Proyek SafeDrop berbasis ESP32 yang memanfaatkan infrastruktur jaringan. Proyek 
 
 - **Deskripsi:** Menginisiasi dan mengkonfigurasi DFPlayer Mini untuk pemutaran audio.
 - **Invocation:** Dipanggil selama inisialisasi untuk memastikan DFPlayer Mini aktif.
+
+### 16. `RTOS & Task Scheduling`
+
+- **Penggunaan `xTaskCreatePinnedToCore`:**
+  - Fungsi ini digunakan untuk membuat tugas yang berjalan pada inti prosesor tertentu.
+  - Contoh Penggunaan: `xTaskCreatePinnedToCore(webServer, "webServer", 10000, NULL, 0, NULL, 0);`
+  - Penjelasan: Membuat tugas `webServer` pada inti prosesor 0 dengan prioritas 0.
+
+- **Dua Tugas menggunakan FreeRTOS Task Scheduler:**
+  - `webServer` dan `buzzerButton` dijadwalkan menggunakan FreeRTOS task scheduler.
+  - Contoh Penggunaan: `xTaskCreatePinnedToCore(buzzerButton, "buzzerButton", 4096, NULL, 2, NULL, 1);`
+  - Penjelasan: Membuat tugas `buzzerButton` pada inti prosesor 1 dengan prioritas 2.
+
+### 17. `Memory Management & Queue`
+
+- **Penggunaan Variabel Global dan Lokal:**
+  - Beberapa variabel global dan lokal digunakan, termasuk variabel yang diberi tanda volatile.
+  - Contoh Penggunaan: `volatile int globalVariable;`
+  - Penjelasan: Variabel `globalVariable` diberi tanda `volatile` untuk pembacaan yang aman.
+
+- **Penggunaan `vTaskDelay`:**
+  - Fungsi `vTaskDelay` digunakan untuk membuat keterlambatan dalam tugas.
+  - Contoh Penggunaan: `vTaskDelay(1000 / portTICK_PERIOD_MS);`
+  - Penjelasan: Membuat keterlambatan selama 1 detik.
+
+### 18. `Mutex & Semaphore`
+
+- **Penggunaan Mutex:**
+  - Dua mutex (`doorMutex` dan `coreOneMutex`) digunakan untuk mengamankan bagian kritis kode.
+  - Contoh Penggunaan: `xSemaphoreTake(doorMutex, portMAX_DELAY);`
+  - Penjelasan: Menggunakan mutex sebelum memasuki bagian kritis kode.
+
+### 19. `Software Timer & Hardware Interrupts`
+
+- **Penggunaan TimerHandle_t dan Fungsi Callback:**
+  - Timer perangkat lunak (`autoCloseTimer`) diimplementasikan dengan `TimerHandle_t` dan fungsi callback (`autoCloseTimerCallback`).
+  - Contoh Penggunaan: `autoCloseTimer = xTimerCreate("AutoCloseTimer", AUTO_CLOSE_TIMER_PERIOD, pdFALSE, (void *) 0, autoCloseTimerCallback);`
+  - Penjelasan: Membuat dan mengaktifkan timer perangkat lunak.
+
+- **Penggunaan Fungsi `digitalRead` untuk Membaca Status Tombol:**
+  - Fungsi `digitalRead` digunakan untuk membaca status tombol sebagai contoh penggunaan interrupt.
+  - Contoh Penggunaan: `int buttonState = digitalRead(BUTTON_PIN);`
+  - Penjelasan: Membaca status tombol pada pin tertentu.
+
+### 20. `Priority Inversion & Multicore Systems`
+
+- **Penggunaan `xTaskCreatePinnedToCore` untuk Multicore Systems:**
+  - Fungsi ini digunakan untuk menjadwalkan tugas pada inti prosesor tertentu.
+  - Contoh Penggunaan: `xTaskCreatePinnedToCore(webServer, "webServer", 10000, NULL, 0, NULL, 0);`
+  - Penjelasan: Menjadwalkan tugas pada inti prosesor tertentu.
 
 ## Test Results and Performance Evaluation
 
