@@ -242,6 +242,12 @@ Testing sambungan web server ini dinilai dari keberhasilan sambungan perangkat d
 
 <img src="https://github.com/Collosalbyte/SafeDrop/blob/main/Test%20Results/WebServer.png" alt="Web Server Start Success" width="700">
 
+### Testing Android Application
+
+Testing integrasi software dan hardware dari sistem melalui aplikasi android, didemonstrasikan dengan menampilkan antarmuka pengguna (UI) dari aplikasi. Pada hasil berikut, aplikasi ditampilkan dengan UI yang intuitif lengkap dengan tombol-tombol fungsionalitasnya.
+
+<img src="https://github.com/Collosalbyte/SafeDrop/blob/main/Application%20Demo/App_Demo.jpg" alt="Application Demo" width="700">
+
 ### Performance Evaluation
 
 Berdasarkan testing yang sudah dilakukan, sistem berhasil mencapai fungsionalitas berikut dengan baik:
