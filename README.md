@@ -65,7 +65,7 @@ Berikut adalah gambaran desain hardware proyek ini:
      
 ## Network Infrastructure
 
-Repository ini berisi kode untuk proyek pintu pintar berbasis ESP32 yang memanfaatkan infrastruktur jaringan. Proyek ini memungkinkan kendali pintu jarak jauh melalui antarmuka web dan menyediakan fitur tambahan seperti pengukuran berat dan umpan balik audio.ESP32 terhubung ke jaringan Wi-Fi dengan kredensial berikut:
+Proyek SafeDrop berbasis ESP32 yang memanfaatkan infrastruktur jaringan. Proyek ini memungkinkan kendali pintu jarak jauh melalui antarmuka web dan menyediakan fitur tambahan seperti pengukuran berat dan umpan balik audio.ESP32 terhubung ke jaringan Wi-Fi dengan kredensial berikut:
 
 - SSID: jembatan
 - Kata Sandi: @kHSMR888
