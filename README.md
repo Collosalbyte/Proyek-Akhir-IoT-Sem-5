@@ -152,8 +152,28 @@ Proyek SafeDrop berbasis ESP32 yang memanfaatkan infrastruktur jaringan. Proyek 
 
 (belum)
 
-## Conclusion and Future Work
+## Conclusion
 
-(belum)
+Proyek SafeDrop memperkenalkan solusi inovatif untuk meningkatkan efisiensi dan keamanan dalam proses pengiriman menggunakan konsep Internet of Things (IoT). Dengan memanfaatkan berbagai sensor dan aktuator, proyek ini memberikan pemantauan real-time terhadap status pengiriman dan kontrol yang lebih baik terhadap akses pintu. Poin-poin kunci yang dapat diambil:
+
+### Deteksi Keberadaan Kurir:
+
+- Kamera ESP32 CAM digunakan untuk mendeteksi keberadaan kurir di titik pengambilan dan pengantaran barang.
+
+### Informasi Berat yang Akurat:
+
+- Integrasi HX711 sebagai sensor berat di dalam wooden box memastikan informasi berat barang yang akurat.
+
+### Pemberitahuan Suara Terprogram:
+
+- Speaker digunakan untuk memberikan pemberitahuan suara yang dapat diprogram kepada penerima atau pengirim, meningkatkan komunikasi dalam proses pengiriman.
+
+### Pusat Kontrol dan IoT:
+
+- ESP32-WROOM berfungsi sebagai pusat kontrol yang mengoordinasikan semua komponen dalam sistem, memungkinkan manajemen jarak jauh melalui platform IoT.
+
+## Future Work
+
+.....
 
 
