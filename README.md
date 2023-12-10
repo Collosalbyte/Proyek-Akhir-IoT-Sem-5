@@ -202,7 +202,55 @@ Proyek SafeDrop berbasis ESP32 yang memanfaatkan infrastruktur jaringan. Proyek 
 
 ## Test Results and Performance Evaluation
 
-(belum)
+Testing dilakukan dengan memeriksa berjalannya fungsionalitas seperti sensor berat HX711, servo pintu kotak, buzzer notifikasi, sambungan Wi-Fi, DFPlayer untuk speaker, dan web server untuk dihubungkan dengan aplikasi.
+
+### Testing Sensor Berat HX711
+
+Testing sensor berat dinilai dari output serial monitor yang menampilkan berat yang terdeteksi oleh sensor. Pada hasil berikut, sensor berhasil mengukur berat benda di atasnya.
+
+<img src="https://github.com/Collosalbyte/SafeDrop/blob/main/Test%20Results/HX711.png" alt="Weight Sensor Output" width="700">
+
+### Testing Servo Pintu Kotak
+
+Testing servo dinilai dari terbuka atau tertutupnya kotak berdasarkan tombol yang ditekan pada aplikasi. Pada hasil berikut, kotak berhasil dibuka dan ditutup sesuai perintah.
+
+<img src="https://github.com/Collosalbyte/SafeDrop/blob/main/Test%20Results/Servo_Open.jpg" alt="Servo Open Box" width="700">
+
+<img src="https://github.com/Collosalbyte/SafeDrop/blob/main/Test%20Results/Servo_Close.jpg" alt="Servo Close Box" width="700">
+
+### Testing Buzzer
+
+Testing buzzer dinilai dari output serial monitor yang menandakan tombol ditekan, dan akibatnya buzzer menyala. Pada hasil berikut, serial monitor mengindikasikan buzzer berhasil menyala.
+
+<img src="https://github.com/Collosalbyte/SafeDrop/blob/main/Test%20Results/Buzzer.png" alt="Buzzer Serial Monitor Output" width="700">
+
+### Testing Sambungan Wi-Fi
+
+Testing sambungan Wi-Fi dinilai dari keberhasilan sambungan perangkat pada jaringan Wi-Fi beserta IP address yang dialokasikan. Pada hasil berikut, serial monitor menandakan perangkat berhasil tersambung dengan Wi-Fi serta mendapatkan IP address lokalnya.
+
+<img src="https://github.com/Collosalbyte/SafeDrop/blob/main/Test%20Results/Wi-Fi.png" alt="Wi-Fi Connection Success" width="700">
+
+### Testing Speaker Connection
+
+Testing sambungan speaker ini dinilai dari keberhasilan sambungan speaker dengan penyimpanan berupa kartu MicroSD menggunakan DFPlayer. Pada hasil berikut, serial monitor menandakan DFPlayer berhasil tersambung.
+
+<img src="https://github.com/Collosalbyte/SafeDrop/blob/main/Test%20Results/DFPlayer.png" alt="Speaker Connection Success" width="700">
+
+### Testing Sambungan Web Server
+
+Testing sambungan web server ini dinilai dari keberhasilan sambungan perangkat dengan suatu HTTP server yang mengelola koneksi antara perangkat dengan aplikasi. Pada hasil berikut, serial monitor menandakan web server berhasil dimulai.
+
+<img src="https://github.com/Collosalbyte/SafeDrop/blob/main/Test%20Results/WebServer.png" alt="Web Server Start Success" width="700">
+
+### Performance Evaluation
+
+Berdasarkan testing yang sudah dilakukan, sistem berhasil mencapai fungsionalitas berikut dengan baik:
+- Notifikasi kepada penerima melalui buzzer secara real-time.
+- Pengukuran berat paket yang diterima.
+- Pembukaan dan penutupan kotak paket secara remote.
+- Sambungan perangkat pada jaringan Wi-Fi
+- Sambungan speaker secara remote melalui DFPlayer
+- Sambungan sistem dan aplikasi melalui Web Server
 
 ## Conclusion
 
