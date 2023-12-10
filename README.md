@@ -174,6 +174,15 @@ Proyek SafeDrop memperkenalkan solusi inovatif untuk meningkatkan efisiensi dan 
 
 ## Future Work
 
-.....
+### Implementasi di Cloud:
 
+- Mengintegrasikan proyek dengan platform cloud seperti AWS atau Google Cloud untuk memungkinkan akses dari luar jaringan lokal.
+
+### Optimasi Streaming Kamera:
+
+- Menyempurnakan algoritma streaming kamera untuk memastikan transmisi video yang lancar dan responsif.
+
+### Optimasi Pengurangan Delay:
+
+- Mengoptimalkan sistem agar minim delay, termasuk pengurangan waktu respons dari setiap komponen.
 
