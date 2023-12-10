@@ -65,11 +65,88 @@ Berikut adalah gambaran desain hardware proyek ini:
      
 ## Network Infrastructure
 
-(belum)
+Repository ini berisi kode untuk proyek pintu pintar berbasis ESP32 yang memanfaatkan infrastruktur jaringan. Proyek ini memungkinkan kendali pintu jarak jauh melalui antarmuka web dan menyediakan fitur tambahan seperti pengukuran berat dan umpan balik audio.ESP32 terhubung ke jaringan Wi-Fi dengan kredensial berikut:
+
+- SSID: jembatan
+- Kata Sandi: @kHSMR888
+
 
 ## Software Implementation Details
 
-(belum)
+### 1. `webServer`
+
+- **Deskripsi:** Fungsi ini berjalan pada inti prosesor kedua dan menangani interaksi klien dengan server web.
+- **Invocation:** `xTaskCreatePinnedToCore(webServer, "webServer", 10000, NULL, 0, NULL, 0);`.
+
+### 2. `buzzerButton`
+
+- **Deskripsi:** Fungsi ini berjalan pada inti prosesor kedua dan menangani pembacaan tombol serta mengaktifkan buzzer sesuai kondisi tombol.
+- **Invocation:** `xTaskCreatePinnedToCore(buzzerButton, "buzzerButton", 4096, NULL, 2, NULL, 1);`.
+
+### 3. `checkConnections`
+
+- **Deskripsi:** Fungsi ini berjalan pada inti prosesor kedua dan secara berkala memeriksa status WiFi dan DFPlayer, serta melakukan koneksi ulang jika diperlukan.
+- **Invocation:** `xTaskCreatePinnedToCore(checkConnections, "checkConnections", 10000, NULL, 1, NULL, 1);`.
+
+### 4. `autoCloseTimerCallback`
+
+- **Deskripsi:** Fungsi panggilan balik dari timer untuk menutup pintu secara otomatis setelah periode tertentu.
+- **Invocation:** Dipanggil oleh `autoCloseTimer` setelah periode tertentu.
+
+### 5. `handleRoot`
+
+- **Deskripsi:** Penangan untuk akar ("/") endpoint. Mengirim tanggapan berisi informasi bahwa Server ESP32 berjalan.
+- **Invocation:** Dipicu ketika permintaan diterima pada akar endpoint.
+
+### 6. `handleOpenDoor`
+
+- **Deskripsi:** Penangan untuk membuka pintu. Memutar motor servo, memainkan MP3, dan menetapkan timer untuk menutup pintu secara otomatis.
+- **Invocation:** Dipicu ketika permintaan diterima pada endpoint "/open".
+
+### 7. `handleCloseDoor`
+
+- **Deskripsi:** Penangan untuk menutup pintu. Memutar motor servo dan menghentikan timer otomatis.
+- **Invocation:** Dipicu ketika permintaan diterima pada endpoint "/close".
+
+### 8. `handleButtonStatus`
+
+- **Deskripsi:** Penangan untuk mengirim status tombol (ditekan atau tidak) sebagai tanggapan.
+- **Invocation:** Dipicu ketika permintaan diterima pada endpoint "/button-status".
+
+### 9. `handleWeight`
+
+- **Deskripsi:** Penangan untuk mengirim berat dari sensor timbangan sebagai tanggapan.
+- **Invocation:** Dipicu ketika permintaan diterima pada endpoint "/weight".
+
+### 10. `buttonBuzzer`
+
+- **Deskripsi:** Membaca status tombol, mengaktifkan buzzer, dan memberikan umpan balik berdasarkan kondisi tombol.
+- **Invocation:** Dipanggil dalam loop utama dari tugas `buzzerButton`.
+
+### 11. `getWeight`
+
+- **Deskripsi:** Membaca nilai dari sensor berat HX711 dan mengembalikan hasilnya.
+- **Invocation:** Digunakan oleh penangan "/weight" untuk mengirim berat sebagai tanggapan.
+
+### 12. `yellowColor`, `greenColor`, `turnOff`
+
+- **Deskripsi:** Fungsi-fungsi ini mengontrol warna LED RGB untuk indikasi visual.
+- **Invocation:** Dipanggil dalam berbagai kondisi untuk mengatur warna LED.
+
+### 13. `autoCloseTimerCallback`
+
+- **Deskripsi:** Fungsi panggilan balik dari timer untuk menutup pintu secara otomatis setelah periode tertentu.
+- **Invocation:** Dipanggil ketika timer otomatis selesai.
+
+### 14. `isDFPlayerConnected`
+
+- **Deskripsi:** Memeriksa apakah DFPlayer Mini terhubung atau tidak.
+- **Invocation:** Digunakan dalam fungsi `checkConnections` untuk menangani koneksi ulang jika diperlukan.
+
+### 15. `startMP3`
+
+- **Deskripsi:** Menginisiasi dan mengkonfigurasi DFPlayer Mini untuk pemutaran audio.
+- **Invocation:** Dipanggil selama inisialisasi untuk memastikan DFPlayer Mini aktif.
 
 ## Test Results and Performance Evaluation
 
